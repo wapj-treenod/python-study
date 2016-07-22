@@ -20,6 +20,7 @@ ex ) gugu(3, 5)
 *
 """
 
+
 def gugu(start=2, end=9, x_start=1, x_end=9, padding=3):
     for x in range(x_start, x_end+1):
         for y in range(start, end+1):
