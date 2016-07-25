@@ -17,7 +17,64 @@
 
 위에 있는 녀석들을 하나로 묶을 수 있는 이름이 무엇이 있을까요?
 
+강아지
+- 이름
+- 털색
+- 몸무게
+- 평균수명
+- 다리길이
+- 꼬리길이
+- 귀생김새
+- 짓는다
+- 먹는다
+- 잔다
+- 반긴다
+- 꼬리를 흔든다
 """
+
+"""
+클래스 이름은 대문자로 시작하는 것이 관례입니다.
+"""
+class Dog:
+    name = None
+    color = None
+    weight = None
+
+    def __init__(self):
+        print("생성!")
+
+
+    def __init__(self, name, color, weight):
+        print("생성2!")
+        self.name = name
+        self.color = color
+        self.weight = weight
+
+
+    def bark(self):
+        pass
+
+    def eat(self):
+        pass
+
+    def sleep(self):
+        pass
+
+    def __str__(self):
+        return self.name + "," + self.color + "," + self.weight
+
+
+# 인스턴스를 만들어줌
+dog = Dog("말티즈", "흰색", "9.8")
+# dog2 = Dog()
+# dog2.name = "말티즈"
+# dog2.color = "흰색"
+# dog2.weight = "9.8kg"
+
+#기본값은 메모리 주소를 알려줍니다
+print(dog)
+# print(dog2)
+
 
 
 class name:
@@ -30,3 +87,7 @@ class name:
     def method2(self, param2):
         pass
 
+
+"""
+숙제: 클래스를 인스턴스로 만들어서 print 문으로 찍어봅시다
+"""

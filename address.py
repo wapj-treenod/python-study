@@ -20,26 +20,29 @@ kuku = {
     'phone': "01011112222",
     'email': "kuku@treenod.com",
     'nick': "kuku",
+    'age': 18,
     'team': "pokopang"
 }
 
-iggy = {'family_name': "김",
-        'first_name': "가람",
-        'email': "iggy@treenod.com",
-        'nick': "iggy",
-        'phone': "01033334444",
-        'age': 18,
-        'team': "dice"
-        }
+iggy = {
+    'family_name': "김",
+    'first_name': "가람",
+    'email': "iggy@treenod.com",
+    'nick': "iggy",
+    'phone': "01033334444",
+    'age': 18,
+    'team': "dice"
+}
 
 william = {
-        'family_name': "강",
-        'phone': "01044445555",
-        'email': "william@treenod.com",
-        'first_name': "신용",
-        'nick': "william",
-        'team': "quest"
-        }
+    'family_name': "강",
+    'phone': "01044445555",
+    'email': "william@treenod.com",
+    'first_name': "신용",
+    'nick': "william",
+    'age': 20,
+    'team': "quest"
+}
 
 
 address = [kuku, iggy, william]
@@ -62,13 +65,6 @@ def get_name(nick):
 get_fullname("iggy")
 get_fullname("william")
 get_fullname("kuku")
-
-
-name = "가람"
-for item in address_dict.items():
-    _name = get_name(item["nick"])
-    if name == _name:
-        print(item["nick"])
 
 
 
