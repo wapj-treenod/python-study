@@ -14,13 +14,14 @@ iggy
 william
 """
 
-kuku = {'family_name':"김",
-        'first_name':"상미",
-        'phone':"01011112222",
-        'email': "kuku@treenod.com",
-        'nick':"kuku",
-        'team':"pokopang"
-        }
+kuku = {
+    'family_name': "김",
+    'first_name': "상미",
+    'phone': "01011112222",
+    'email': "kuku@treenod.com",
+    'nick': "kuku",
+    'team': "pokopang"
+}
 
 iggy = {'family_name': "김",
         'first_name': "가람",
@@ -31,7 +32,8 @@ iggy = {'family_name': "김",
         'team': "dice"
         }
 
-william = {'family_name': "강",
+william = {
+        'family_name': "강",
         'phone': "01044445555",
         'email': "william@treenod.com",
         'first_name': "신용",
@@ -67,3 +69,6 @@ for item in address_dict.items():
     _name = get_name(item["nick"])
     if name == _name:
         print(item["nick"])
+
+
+
