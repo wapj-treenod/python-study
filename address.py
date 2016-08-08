@@ -66,20 +66,45 @@ def temp():
 
 class Address:
     # 주소의 클래스
-    family_name = None
-    name = None
-    phone = None
-    email = None
-    nick = None
-    team = None
-    age = 0
 
     def __init__(self, name="무명씨"):
         # print("요녀석은 인스턴스를 만들때 실행됩니다.")
-        self.name = name
+        self.__name = name
+        self.__family_name = None
+        self.__nick = None
+        self.__email = None
+        self.__phone = None
+        self.__team = None
+        self.__age = 1
+
+    def name(self, name):
+        self.__name = name
+        return self
+
+    def phone(self, phone):
+        self.__phone = phone
+        return self
+
+    def email(self, email):
+        self.__email = email
+        return self
+
+    def nick(self, nick):
+        self.__nick = nick
+        return self
+
+    def team(self, team):
+        self.__team = team
+        return self
+
+    def age(self, age):
+        self.__age = age
+        return self
 
     def __str__(self):
-        return "이름 : %s | 닉네임 : %s | 전화 : %s" % (self.name, self.nick, self.phone)
+        return "이름 : %s | 닉네임 : %s | 전화 : %s" % (self.__name, self.__nick, self.__phone)
+
+
 
 
 class AddressBook:
@@ -101,15 +126,39 @@ class AddressBook:
         self.addresses.append(address)
         pass
 
-    def delete(self):
-        pass
+    def delete(self, name_or_nick):
+        result = self.search(name_or_nick)
+        if result is not None:
+            self.addresses.remove(result)
+            print(name_or_nick, "을 삭제했습니다")
+
 
     def modify(self):
         pass
 
-    def search(self, name=None):
+
+    def search(self, keyword):
+        byNickResult = self.searchAddrByNick(keyword)
+        if byNickResult is not None:
+            return byNickResult
+
+        return self.searchAddrByName(keyword)
+
+    def searchAddrByNick(self, nick=None):
         # 이름으로 주소를 검색한다
-        pass
+        for addr in self.addresses:
+            print(addr)
+            if nick == addr.nick:
+                return addr
+        return None
+
+    def searchAddrByName(self, name=None):
+        # 이름으로 주소를 검색한다
+        for addr in self.addresses:
+            if name == addr.name:
+                return addr
+        return None
+
 
     def display(self):
         # 모든 주소 데이터를 출력하다
@@ -127,17 +176,9 @@ class AddressBook:
 
 # 인스턴스를 만들어봅시다
 # 클래스이름() 인스턴스화
-simon = Address("원진")
-simon.nick = "싸이먼"
-simon.phone = "01033334444"
-
-jessie = Address("진숙")
-jessie.nick = "제시"
-jessie.phone = "01055556666"
-
-william = Address("신용")
-william.nick = "윌리엄"
-william.phone = "01066667777"
+simon = Address("원진").nick("싸이먼").phone("01033334444")
+jessie = Address("진숙").nick("제시").phone("01055556666")
+william = Address("신용").nick("윌리엄").phone("01066667777")
 
 
 book = AddressBook()
@@ -150,5 +191,5 @@ book.add(Address("와프"))
 
 # 주소록에 있는 모든 데이터를 보여준다
 book.display()
-
-
+book.delete("와프")
+book.display()
